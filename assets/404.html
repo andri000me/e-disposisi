@@ -1,0 +1,165 @@
+<!doctype html>
+<html class="no-js">
+	<head>
+		<meta charset="UTF-8">
+		<title>CMS | Transcosmos Indonesia</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="<?php echo config_item('assets'); ?>css/bootstrap.css">
+		<link rel="stylesheet" href="<?php echo config_item('assets'); ?>css/font-awesome.css">
+		<link rel="stylesheet" href="<?php echo config_item('assets'); ?>css/main.css">
+		<link rel="stylesheet" href="<?php echo config_item('assets'); ?>css/metisMenu.css">
+		<link rel="stylesheet" href="<?php echo config_item('assets'); ?>css/prism.min.css">
+		<link rel="stylesheet" href="<?php echo config_item('assets'); ?>css/jquery.gritter.css">
+		<link rel="stylesheet" href="<?php echo config_item('assets'); ?>css/dataTables.bootstrap.css">
+		<link rel="stylesheet" href="<?php echo config_item('assets'); ?>css/daterangepicker-bs3.css">
+		<link rel="stylesheet" href="<?php echo config_item('assets'); ?>css/fileinput.css">
+		<link rel="stylesheet" href="<?php echo config_item('assets'); ?>css/chosen.min.css">
+        <link rel="stylesheet" href="<?php echo config_item('assets'); ?>css/datepicker.css">
+		<!--[if lt IE 9]>
+		<script src="<?php echo config_item('assets'); ?>js/html5shiv.js"></script>
+		<script src="<?php echo config_item('assets'); ?>js/respond.min.js"></script>
+		<![endif]-->
+		<!--Modernizr-->
+		<script src="<?php echo config_item('assets'); ?>js/modernizr.min.js"></script>
+		<!-- tcid add -->
+	</head>
+	<body class="">
+		<div class="bg-dark dk" id="wrap">
+			<div id="top">
+				<!-- .navbar -->
+				<nav class="navbar navbar-inverse navbar-fixed-top">
+					<div class="container-fluid">
+						<!-- Brand and toggle get grouped for better mobile display -->
+						<header class="navbar-header">
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#left">
+								<span class="sr-only">Toggle navigation</span> 
+								<span class="icon-bar"></span> 
+								<span class="icon-bar"></span> 
+								<span class="icon-bar"></span> 
+							</button>
+							<a href="<?php echo base_url(); ?>/dashboard" class="navbar-brand"><img src="<?php echo config_item('assets'); ?>img/tcid_logo_shadow_white.png" alt=""> </a>
+						</header>
+						<div class="topnav">
+							<div class="btn-group">
+							  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+							    <img style="width:25px;height:auto;" src="<?php echo config_item('assets').'img/user_photo/'.$this->session->userdata('image'); ?>" class="replaced-image img-<?php echo $this->session->userdata('nip')?>"/>
+							    <span><?php echo anchor('members/profile', $this->session->userdata('name')); ?></span>
+							    <span class="caret"></span>
+							  </button>
+							  <ul class="dropdown-menu" role="menu">
+							    <li><a href=""><?php echo anchor('members/profile', 'Edit User Profile'); ?></a></li>
+							    <li><a data-placement="bottom" href="<?php echo site_url('auth/logout')?>" class="btn btn-metis-1 btn-sm" title="Logout"> <i class="fa fa-power-off"></i></a></li>
+							  </ul>
+							</div>
+							<div class="btn-group" id="fullscreen">
+								<a data-placement="bottom" class="btn btn-default btn-sm" id="toggleFullScreen" title="Full Screen"><i class="fa fa-expand fa-2x"></i> </a>
+							</div>
+						</div>
+					</div><!-- /.container-fluid -->
+				</nav><!-- /.navbar -->
+			</div><!-- /#top -->
+			<div id="left">
+				<div class="media user-media bg-dark dker">
+					<div class="user-media-toggleHover">
+						<span class="fa fa-user"></span>
+					</div>
+					<div class="user-wrapper bg-dark">
+						<div class="media-body">
+							<h5 class="media-heading">Welcome</h5>
+							<div class="image-edit">
+								<img style="width:100px;height:auto;" src="<?php echo config_item('assets').'img/user_photo/'.$this->session->userdata('image'); ?>?cachebuster=<?php echo time();?>" class="replaced-image img-<?php echo $this->session->userdata('nip')?>"/>								<div class="overlay-image">
+									<button class="btn" type="button" id="chgPic" data-url='<?php echo site_url('members/avatar'); ?>'>Change Picture</button>
+								</div>
+							</div>
+							<ul class="list-unstyled user-info">
+								<li>
+									<a href=""><?php echo anchor('members/profile', $this->session->userdata('name')); ?></a>
+								</li>
+								<li>
+								    <small><?php echo date('D d, M Y'); ?></small>
+								</li>
+							</ul>
+                            <h4>I am a <?php echo $this->session->userdata('division'); ?></h4>
+						</div>
+					</div>
+				</div>
+				<!-- #menu -->
+				<ul id="menu" class="bg-dark dker">
+					<li class="nav-divider"></li>
+					<li class="<?php echo (($this->uri->segment(1) == 'dashboard') ? 'active' : null); ?>">
+						<a href="<?php echo site_url('dashboard')?>"> <i class="fa fa-dashboard"></i><span class="link-title">Dashboard</span> </a>
+					</li>
+					<li class="<?php echo ((($this->uri->segment(1) == 'daily_reports')||($this->uri->segment(1) == 'weekly_reports')) ? 'active' : null); ?>">
+						<a href="javascript:;"><i class="fa fa-tasks"></i> <span class="link-title"> Report</span><span class="fa arrow"></span></a>
+						<ul>
+							<li class="active">
+								<a href="<?php echo site_url('daily_reports')?>"><i class="fa fa-angle-right"></i><span class="link-title">Daily report</span> </a>
+							</li>
+							<li>
+								<a href="<?php echo site_url('weekly_reports')?>"><i class="fa fa-angle-right"></i><span class="link-title">Weekly Report</span> </a>
+							</li>
+						</ul>
+					</li>
+					<li class="<?php echo ((($this->uri->segment(1) == 'members')||($this->uri->segment(1) == 'users')) ? 'active' : null); ?>">
+						<a href="javascript:;"><i class="fa fa-tasks"></i> <span class="link-title"> Member List</span><span class="fa arrow"></span></a>
+						<ul>
+							<li>
+								<a href="<?php echo site_url('members')?>"> <i class="fa fa-angle-right"></i>Members </a>
+							</li>
+							<li>
+                                <a href="<?php echo site_url('users')?>"><i class="fa fa-angle-right"></i>Users & Privileges </a>
+                            </li>
+						</ul>
+					</li>
+					<li class="<?php echo ((($this->uri->segment(1) == 'divisions')||($this->uri->segment(1) == 'work_classifications')||($this->uri->segment(1) == 'work_categories')||($this->uri->segment(1) == 'job_codes')) ? 'active' : null); ?>">
+						<a href="javascript:;"><i class="fa fa-tasks"></i> <span class="link-title"> Division & Job</span><span class="fa arrow"></span></a>
+						<ul>
+							<li>
+								<a href="<?php echo site_url('divisions')?>"><i class="fa fa-angle-right"></i><span class="link-title">Division</span> </a>
+							</li>
+							<li>
+								<a href="<?php echo site_url('work_classifications')?>"><i class="fa fa-angle-right"></i><span class="link-title">Work Clasification</span> </a>
+							</li>
+							<li>
+								<a href="<?php echo site_url('work_categories')?>"><i class="fa fa-angle-right"></i><span class="link-title">Work Categories</span> </a>
+							</li>
+							<li>
+								<a href="<?php echo site_url('job_codes')?>"><i class="fa fa-angle-right"></i><span class="link-title">Job Code</span> </a>
+							</li>
+						</ul>
+					</li>
+				</ul><!-- /#menu -->
+			</div><!-- /#left -->
+			<div id="content">
+				<div class="outer">
+					<div class="inner bg-light lter">
+						
+					</div><!-- /.inner -->
+				</div><!-- /.outer -->
+			</div><!-- /#content -->
+		</div><!-- /#wrap -->
+		<footer class="Footer bg-dark dker">
+			<p>
+				2015 &copy; <a href="http://www.trans-cosmos.co.id/" target="_blank">PT. Transcosmos Indonesia</a> All rights reserved.
+			</p>
+		</footer><!-- /#footer -->
+
+		<!--jQuery -->
+		<script src="<?php echo config_item('assets'); ?>js/jquery.min.js"></script>
+		<script src="<?php echo config_item('assets'); ?>js/prism.min.js"></script>
+		<script src="<?php echo config_item('assets'); ?>js/bootstrap.min.js"></script>
+		<script src="<?php echo config_item('assets'); ?>js/fileinput.js"></script>
+		<script src="<?php echo config_item('assets'); ?>js/metisMenu.min.js"></script>
+		<script src="<?php echo config_item('assets'); ?>js/screenfull.min.js"></script>
+		<script src="<?php echo config_item('assets'); ?>js/jquery.gritter.min.js"></script>
+		<script src="<?php echo config_item('assets'); ?>js/core.js"></script>
+		<script src="<?php echo config_item('assets'); ?>js/app.js"></script>
+		<?php  if(isset($script)) echo $script; ?>
+		<script>
+			<?php if($this->session->flashdata('alert')) : ?>
+				gritter_alert('<?php echo $this->session->flashdata('alert') ?>');
+			<?php endif; ?>
+		</script>
+	</body>
+</html>
