@@ -1,29 +1,33 @@
 <div class="col-lg-12">
 	<section class="panel">
 		<header class="panel-heading">
-			Data Pegawai
-			<button type="button" class="btn btn-sm btn-info" onclick="call_modal(0)"><i class="icon-plus-sign"></i> Tambah data</button>
+			Pegawai
 		</header>
 		<div class="panel-body">
-			<div class="adv-table">
-				<table  class="display table table-bordered table-striped" id="grid_data">
-					<thead>
-						<tr>
-							<th>NIP</th>
-							<th>Nama</th>
-							<th>Jabatan</th>
-							<th>Aksi</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>Trident</td>
-							<td>Internet Explorer 4.0</td>
-							<td>Win 95+</td>
-							<td>Win 95+</td>
-						</tr>
-					</tbody>
-				</table>
+			<div class="panel-body">
+				<div class="adv-table editable-table">
+					<table class="table table-striped table-hover table-bordered" id="grid_data">
+						<thead>
+							<tr>
+								<th rowspan="2">NIP</th>
+								<th rowspan="2">Nama</th>
+								<th rowspan="2">JK</th>
+								<th rowspan="2">Departemen</th>
+								<th rowspan="2">Jabatan</th>
+								<th rowspan="2">Hak Akses</th>
+								<th colspan="2">Kontak</th>								
+								<th rowspan="2">Status</th>
+							</tr>
+							<tr>
+							    <th>Ponsel</th>
+                                <th>Email</th>
+							</tr>
+						</thead>
+						<tbody>
+
+						</tbody>
+					</table>
+				</div>
 			</div>
 		</div>
 	</section>

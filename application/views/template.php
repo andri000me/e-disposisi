@@ -9,9 +9,10 @@
 		<link href="<?php echo base_url('assets/css/bootstrap-reset.css'); ?>" rel="stylesheet">
 		<link href="<?php echo base_url('assets/css/font-awesome.css'); ?>" rel="stylesheet">
 		<link href="<?php echo base_url('assets/css/jquery.gritter.css'); ?>" rel="stylesheet">
-		<link href="<?php echo base_url('assets/css/jquery.dataTables.css'); ?>" rel="stylesheet">
+		<link href="<?php echo base_url('assets/css/DT_bootstrap.css'); ?>" rel="stylesheet">
 		<link href="<?php echo base_url('assets/css/style.css'); ?>" rel="stylesheet">
 		<link href="<?php echo base_url('assets/css/style-responsive.css'); ?>" rel="stylesheet">
+		
 		<!--[if lt IE 9]>
 		<script src="<?php echo base_url('assets/js/html5shiv.js'); ?>"></script>
 		<script src="<?php echo base_url('assets/js/respond.min.js'); ?>"></script>
@@ -25,8 +26,76 @@
 					<div data-original-title="Toggle Navigation" data-placement="right" class="icon-reorder tooltips"></div>
 				</div>
 				<!--logo start-->
-				<a href="<?php echo site_url(); ?>" class="logo"><img src="<?php echo base_url('assets/img/logo.png'); ?>" height="px" alt="e-disposisi"></a>
-				<!--logo end-->				
+				<a href="<?php echo site_url(); ?>" class="logo"><img src="<?php echo base_url('assets/img/logo.png'); ?>" height="30px" alt="e-disposisi"></a>
+				<!--logo end-->
+				<div class="horizontal-menu navbar-collapse collapse ">
+					<ul class="nav navbar-nav">
+						<li class="dropdown">
+							<a data-toggle="dropdown" class="dropdown-toggle" href="#"><i class="icon-hdd"></i> Data Umum <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li>
+									<a  href="<?php echo site_url('departements'); ?>">Departemen</a>
+								</li>
+								<li>
+									<a  href="<?php echo site_url('users'); ?>">Pegawai</a>
+								</li>
+								<li>
+									<a  href="<?php echo site_url('positions'); ?>">Jabatan</a>
+								</li>
+							</ul>
+						</li>
+						<li class="dropdown">
+							<a data-toggle="dropdown" class="dropdown-toggle" href="#"><i class="icon-paperclip"></i> Atribut Surat <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li>
+									<a  href="<?php echo site_url('mail_types'); ?>">Jenis Surat</a>
+								</li>
+								<li>
+									<a  href="<?php echo site_url('mail_classes'); ?>">Klasifikasi Surat</a>
+								</li>
+								<li>
+									<a  href="<?php echo site_url('mail_levels'); ?>">Derajat Surat</a>
+								</li>
+								<li>
+									<a  href="<?php echo site_url('mail_origins'); ?>">Asal Surat</a>
+								</li>
+								<li>
+									<a  href="<?php echo site_url('mail_shelves'); ?>">Rak Surat</a>
+								</li>
+							</ul>
+						</li>
+						<li class="dropdown">
+							<a data-toggle="dropdown" class="dropdown-toggle" href="#"><i class="icon-envelope"></i> Managemen Surat <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li>
+									<a  href="">Surat Masuk</a>
+								</li>
+								<li>
+									<a  href="">Surat Keluar</a>
+								</li>
+							</ul>
+						</li>
+						<li class="dropdown">
+							<a data-toggle="dropdown" class="dropdown-toggle" href="#"><i class="icon-file"></i> Pelaporan <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li>
+									<a  href="">Surat Masuk</a>
+								</li>
+								<li>
+									<a  href="">Surat Keluar</a>
+								</li>
+							</ul>
+						</li>
+						<li class="dropdown">
+							<a data-toggle="dropdown" class="dropdown-toggle" href="#"><i class="icon-cogs"></i> Pengaturan <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li>
+									<a href="#">Konfigurasi System</a>
+								</li>
+							</ul>
+						</li>
+					</ul>       
+				</div>				
 				<div class="top-nav ">
 					<ul class="nav pull-right top-menu">						
 						<!-- user login dropdown start-->
@@ -55,37 +124,27 @@
 				<div id="sidebar"  class="nav-collapse ">
 					<!-- sidebar menu start-->
 					<ul class="sidebar-menu" id="nav-accordion">
-						<li>
-							<a href="<?php echo site_url('welcome'); ?>" class="<?php echo ($this->uri->segment(1) == 'welcome') ? 'active' : ''; ?>"> <i class="icon-dashboard"></i> <span>Beranda</span> </a>
-						</li>
-						<li>
-							<a href="<?php echo site_url('users'); ?>" class="<?php echo ($this->uri->segment(1) == 'users') ? 'active' : ''; ?>"> <i class="icon-user"></i> <span>Pegawai</span> </a>
-						</li>
-						<li class="sub-menu">
-							<a href="#"> <i class="icon-envelope"></i> <span>Managemen Surat</span> </a>
-							<ul class="sub">
-								<li>
-									<a  href="">Surat Masuk</a>
-								</li>
-								<li>
-									<a  href="">Surat Keluar</a>
-								</li>
-							</ul>
-						</li>
-						<li class="sub-menu">
-							<a href="#"> <i class="icon-cogs"></i> <span>Pengaturan</span> </a>
-							<ul class="sub">
-								<li>
-									<a  href="">Boxed Page</a>
-								</li>
-								<li>
-									<a  href="">Horizontal Menu</a>
-								</li>
-								<li>
-									<a  href="">Language Switch Bar</a>
-								</li>
-							</ul>
-						</li>   
+                        <li>
+                            <a  href="inbox.html">
+                                <i class="icon-star"></i>
+                                <span>Disposisi </span>
+                                <span class="label label-danger pull-right mail-info">2</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a  href="inbox.html">
+                                <i class="icon-mail-forward"></i>
+                                <span>Surat Masuk</span>
+                                <span class="label label-danger pull-right mail-info">2</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a  href="inbox.html">
+                                <i class=" icon-mail-reply"></i>
+                                <span>Surat Keluar</span>
+                                <span class="label label-danger pull-right mail-info">2</span>
+                            </a>
+                        </li>
 					</ul>
 					<!-- sidebar menu end-->
 				</div>
@@ -169,7 +228,7 @@
 		</section>
 		
 		<!--myModal-->
-		<div class="modal fade" id="myModal"></div>
+		<div class="modal" id="myModal"></div>
 		
 		<script src="<?php echo base_url('assets/js/jquery.js'); ?>"></script>
 		<script src="<?php echo base_url('assets/js/bootstrap.min.js'); ?>"></script>
@@ -185,6 +244,6 @@
 		<script>
 			gritter_alert('<?php echo $this->session->flashdata('alert'); ?>');
 		</script>
-        <?php endif; ?>
+		<?php endif; ?>
 	</body>
 </html>

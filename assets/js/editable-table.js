@@ -1,9 +1,4 @@
-var EditableTable = function () {
 
-    return {
-
-        //main function to initiate the module
-        init: function () {
             function restoreRow(oTable, nRow) {
                 var aData = oTable.fnGetData(nRow);
                 var jqTds = $('>td', nRow);
@@ -57,11 +52,14 @@ var EditableTable = function () {
                 "sDom": "<'row'<'col-lg-6'l><'col-lg-6'f>r>t<'row'<'col-lg-6'i><'col-lg-6'p>>",
                 "sPaginationType": "bootstrap",
                 "oLanguage": {
-                    "sLengthMenu": "_MENU_ records per page",
+                	"paging":   false,
+        "ordering": false,
+        "info":     false
+                    /*"sLengthMenu": "_MENU_ records per page",
                     "oPaginate": {
                         "sPrevious": "Prev",
                         "sNext": "Next"
-                    }
+                    }*/
                 },
                 "aoColumnDefs": [{
                         'bSortable': false,
@@ -130,8 +128,3 @@ var EditableTable = function () {
                     nEditing = nRow;
                 }
             });
-        }
-
-    };
-
-}();

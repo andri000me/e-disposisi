@@ -90,11 +90,6 @@ a:hover {
 
 /*modal*/
 
-.modal-content {
-    box-shadow: none;
-    border: none;
-}
-
 .modal-header {
     background: #00A8B3;
     color: #fff;

@@ -1,3 +1,31 @@
+/*--- Confirmation Modal----*/
+function myConfirm(url) {
+	if ($("#confirmModal").length > 0) {
+		$("#confirmModal").remove();
+	}
+	divModal = $('<div class="modal bs-example-modal-sm" id="confirmModal">');
+	divModal.append (
+		'<div class="modal-dialog modal-sm">'+
+			'<div class="modal-content">'+
+				'<div class="modal-header">'+
+					'<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>'+
+					'<h4 class="modal-title"><i class="icon-exclamation-sign"></i> Confirmation</h4>'+
+				'</div>'+
+				'<div class="modal-body">'+
+					'<p>Anda yakin akan menghapus ?</p>'+
+				'</div>'+
+				'<div class="modal-footer">'+
+					'<button data-dismiss="modal" class="btn btn-default" type="button"><i class="icon-remove"></i> Tidak</button>'+
+	                '<a class="btn btn-info" href='+url+'><i class="icon-ok"></i> Ya</a>'+
+				'</div>'+
+			'</div>'+
+		'</div>'
+	);
+	$('body').append(divModal);
+	$('#confirmModal').modal('show');
+	return false;
+}
+
 /*---Gritter Notification----*/
 function gritter_alert(message) {
 	var unique_id = $.gritter.add({

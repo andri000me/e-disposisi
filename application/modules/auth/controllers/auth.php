@@ -24,7 +24,7 @@ class Auth extends CI_Controller {
 	
 	function login()
 	{
-		$this->form_validation->set_error_delimiters('', '<br>');
+		$this->form_validation->set_error_delimiters('', '');
 		$this->form_validation->set_rules('username', 'NIP', 'trim|required|xss_clean');
 		$this->form_validation->set_rules('password', 'password', 'trim|required|md5');
 		
